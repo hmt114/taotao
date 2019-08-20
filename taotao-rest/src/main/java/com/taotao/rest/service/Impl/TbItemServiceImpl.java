@@ -1,17 +1,17 @@
 package com.taotao.rest.service.Impl;
 
+import com.taotao.api.TbItemService;
 import com.taotao.common.TaotaoResult;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
-import com.taotao.rest.service.TbItemService;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * @author hmt
  * @date 2019/8/8 9:14
  */
-@Service
+@Service(version = "1.0.0")
 public class TbItemServiceImpl implements TbItemService {
     @Autowired
     private TbItemMapper tbItemMapper;

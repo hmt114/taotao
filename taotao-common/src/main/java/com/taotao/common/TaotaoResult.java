@@ -3,12 +3,13 @@ package com.taotao.common;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * 淘淘商城自定义响应结构
  */
-public class TaotaoResult {
+public class TaotaoResult implements Serializable {
     @Override
     public String toString() {
         return "TaotaoResult{" +

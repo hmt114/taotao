@@ -1,10 +1,8 @@
 package com.taotao.portal.service.impl;
 
-import com.taotao.common.HttpUtil;
-import com.taotao.common.JsonUtils;
 import com.taotao.common.TaotaoResult;
 import com.taotao.portal.service.TbContentService;
-import org.springframework.beans.factory.annotation.Value;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,15 +12,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class TbContentServiceImpl implements TbContentService {
 
-    @Value("${rest.url}")
-    private String restUrl;
+    @Reference(version = "1.0.0")
+    private com.taotao.api.TbContentService tbContentService;
 
     @Override
     public String getContent() {
-
         //发送请求到rest服务，接收数据，轮播图
-        String content = HttpUtil.doGet(restUrl+"/content/getall");
-        TaotaoResult taotaoResult = JsonUtils.jsonToPojo(content,TaotaoResult.class);
+        TaotaoResult taotaoResult = tbContentService.getAllContent();
         if(taotaoResult.getStatus().equals(200)){
             return (String) taotaoResult.getData();
         }

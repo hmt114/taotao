@@ -1,6 +1,6 @@
 package com.taotao.rest.web;
 
-import com.taotao.rest.service.ItemCatService;
+import com.taotao.api.ItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

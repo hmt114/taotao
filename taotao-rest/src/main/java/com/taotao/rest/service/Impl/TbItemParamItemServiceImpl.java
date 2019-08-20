@@ -1,12 +1,12 @@
 package com.taotao.rest.service.Impl;
 
+import com.taotao.api.TbItemParamItemService;
 import com.taotao.common.TaotaoResult;
 import com.taotao.mapper.TbItemParamItemMapper;
 import com.taotao.pojo.TbItemParamItem;
 import com.taotao.pojo.TbItemParamItemExample;
-import com.taotao.rest.service.TbItemParamItemService;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  * @author hmt
  * @date 2019/8/9 0:59
  */
-@Service
+@Service(version = "1.0.0")
 public class TbItemParamItemServiceImpl implements TbItemParamItemService {
 
     @Autowired

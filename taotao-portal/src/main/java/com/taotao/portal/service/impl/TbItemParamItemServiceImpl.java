@@ -5,6 +5,7 @@ import com.taotao.common.JsonUtils;
 import com.taotao.common.TaotaoResult;
 import com.taotao.pojo.TbItemParamItem;
 import com.taotao.portal.service.TbItemParamItemService;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +19,11 @@ import java.util.Map;
 @Service
 public class TbItemParamItemServiceImpl implements TbItemParamItemService {
 
-    @Value("${rest.url}")
-    private String restUrl;
+    @Reference(version = "1.0.0")
+    private com.taotao.api.TbItemParamItemService tbItemParamItemService;
     @Override
     public String getTbItemParam(long id) {
-        String jsonResult = HttpUtil.doGet(restUrl+"/item/param/"+id);
-        TaotaoResult taotaoResult = TaotaoResult.formatToPojo(jsonResult, TbItemParamItem.class);
+        TaotaoResult taotaoResult = tbItemParamItemService.getTbItemParam(id);
         if(taotaoResult.getStatus().equals(200)){
             TbItemParamItem tbItemParamItem = (TbItemParamItem) taotaoResult.getData();
             String html = buildHtmlFromTbItemParamItem(tbItemParamItem);

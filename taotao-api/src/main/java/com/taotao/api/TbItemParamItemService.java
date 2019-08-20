@@ -1,4 +1,4 @@
-package com.taotao.rest.service;
+package com.taotao.api;
 
 import com.taotao.common.TaotaoResult;
 

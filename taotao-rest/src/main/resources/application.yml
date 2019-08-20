@@ -24,3 +24,15 @@ logging:
   level:
     root: info
     com.taotao.mapper: debug
+dubbo:
+  application:
+    name: rest-provider
+    qos-enable: false
+
+  protocol:
+    name: dubbo
+    host: 10.10.14.189
+    port: 20880
+
+  registry:
+    address: zookeeper://10.10.14.125:3181?backup=10.10.14.125:3182,10.10.14.125:3183

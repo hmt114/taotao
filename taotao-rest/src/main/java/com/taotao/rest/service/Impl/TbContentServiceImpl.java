@@ -1,12 +1,12 @@
 package com.taotao.rest.service.Impl;
 
+import com.taotao.api.TbContentService;
 import com.taotao.common.JsonUtils;
 import com.taotao.common.TaotaoResult;
 import com.taotao.mapper.TbContentMapper;
 import com.taotao.pojo.TbContent;
-import com.taotao.rest.service.TbContentService;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +17,7 @@ import java.util.Map;
  * @author hmt
  * @date 2019/8/2 10:01
  */
-@Service
+@Service(version = "1.0.0")
 public class TbContentServiceImpl implements TbContentService {
 
     @Autowired

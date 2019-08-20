@@ -1,11 +1,11 @@
 package com.taotao.rest.service.Impl;
 
+import com.taotao.api.ItemCatService;
 import com.taotao.common.TaotaoResult;
 import com.taotao.mapper.TbItemCatMapper;
 import com.taotao.pojo.TbItemCat;
 import com.taotao.pojo.TbItemCatExample;
 import com.taotao.rest.pojo.ItemCat;
-import com.taotao.rest.service.ItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

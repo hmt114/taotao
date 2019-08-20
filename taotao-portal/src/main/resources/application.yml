@@ -15,3 +15,11 @@ taotao:
   sso:
     login_url: http://localhost:8084/page/showLogin
     token_url: http://localhost:8084/user/token
+
+dubbo:
+  application:
+    qos-enable: false
+    name: portal-consumer
+
+  registry:
+    address: zookeeper://10.10.14.125:3181?backup=10.10.14.125:3182,10.10.14.125:3183

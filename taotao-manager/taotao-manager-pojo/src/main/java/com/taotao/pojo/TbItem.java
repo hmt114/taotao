@@ -1,10 +1,9 @@
 package com.taotao.pojo;
 
-import com.sun.javafx.beans.IDProperty;
-
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbItem {
+public class TbItem implements Serializable {
     @Override
     public String toString() {
         return "TbItem{" +

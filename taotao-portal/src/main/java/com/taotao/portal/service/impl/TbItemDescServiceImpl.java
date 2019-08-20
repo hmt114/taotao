@@ -4,6 +4,7 @@ import com.taotao.common.HttpUtil;
 import com.taotao.common.TaotaoResult;
 import com.taotao.pojo.TbItemDesc;
 import com.taotao.portal.service.TbItemDescService;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +15,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class TbItemDescServiceImpl implements TbItemDescService {
 
-    @Value("${rest.url}")
-    private String restUrl;
+    @Reference(version = "1.0.0")
+    private com.taotao.api.TbItemDescService tbItemDescService;
     @Override
     public String getTbItemDesc(long id) {
-        String jsonResult = HttpUtil.doGet(restUrl+"/item/desc/"+id);
-        TaotaoResult taotaoResult = TaotaoResult.formatToPojo(jsonResult,TbItemDesc.class);
+        TaotaoResult taotaoResult = tbItemDescService.getTbItemDesc(id);
         if(taotaoResult.getStatus().equals(200)){
             TbItemDesc tbItemDesc = (TbItemDesc) taotaoResult.getData();
             return tbItemDesc.getItemDesc();
